@@ -14,10 +14,19 @@ public class ConditionalStatements {
         // Declare an int variable called number and assign it a positive value.
 
         int number = 7;
+        if (number > 0){
+            System.out.println("Positive");
+        }
 
         // TODO: 2 - Add an else clause to the above that prints "Not positive"
         // Change the value of number to a negative value or 0 to test both branches.
 
+        number = -7;
+        if (number > 0){
+            System.out.println("Positive");
+        }else{
+            System.out.println("Negative");
+        }
 
         // TODO: 3 - Write an if/else if/else chain for grade classification
         // Declare an int variable called score and assign it a value (0-100).
@@ -27,6 +36,15 @@ public class ConditionalStatements {
         // Else print "Grade: F"
 
         int score = 85;
+        if(score >= 90){
+            System.out.println("Grade: A");
+        } else if (score >= 80) {
+            System.out.println("Grade: B");
+        } else if (score >= 70) {
+            System.out.println("Grade: C");
+        }else{
+            System.out.println("Grade: F");
+        }
 
 
         // TODO: 4 - Write a switch statement for day of the week
@@ -36,6 +54,24 @@ public class ConditionalStatements {
         // Include a default case for invalid values.
 
         int day = 3;
+        if(day < 1 || day > 7){
+            System.out.println("Invalid value");
+        }else if(day == 1){
+            System.out.println("Monday");
+        } else if (day == 2) {
+            System.out.println("Tuesday");
+        } else if (day == 3) {
+            System.out.println("Wednesday");
+        } else if (day == 4) {
+            System.out.println("Thursday");
+        } else if (day == 5) {
+            System.out.println("Friday");
+        } else if (day == 6) {
+            System.out.println("Saturday");
+        } else if (day == 7) {
+            System.out.println("Sunday");
+        }
+
 
 
         // TODO: 5 - Use a switch statement with a String
@@ -45,6 +81,23 @@ public class ConditionalStatements {
 
         String month = "February";
 
+        switch(month) {
+            case "January":
+                System.out.println(31);
+                break;
+            case "February":
+                System.out.println(28);
+                break;
+            case "March":
+                System.out.println(31);
+                break;
+            case "April":
+                System.out.println(30);
+                break;
+            default:
+                System.out.println("invalid value");
+
+        }
 
         // TODO: 6 - Use a switch expression (Java 14+) to return a value
         // Using the 'day' variable from above, assign the day name to a String
@@ -55,7 +108,26 @@ public class ConditionalStatements {
         //   };
         // Print the result.
 
-
+        switch(day){
+            case 1:
+                System.out.println("Monday");
+                break;
+            case 2:
+                System.out.println("Tuesday");
+                break;
+            case 3:
+                System.out.println("Wednesday");
+                break;
+            case 4:
+                System.out.println("Thursday");
+                break;
+            case 5:
+                System.out.println("Friday");
+                break;
+            case 6:
+                System.out.println("Saturday");
+                break;
+        }
         // TODO: 7 - Write a nested if statement to check if a number is positive AND even
         // Declare an int variable called value.
         // First check if it is positive (> 0).
@@ -65,6 +137,15 @@ public class ConditionalStatements {
         //   Else print "Not positive"
 
         int value = 8;
+        if(value > 0){
+            if(value % 2 == 0){
+                System.out.println("Positive and even");
+            }else{
+                System.out.println("Positive and odd");
+            }
+        }else{
+            System.out.println("Not Positive");
+        }
 
     }
 }
