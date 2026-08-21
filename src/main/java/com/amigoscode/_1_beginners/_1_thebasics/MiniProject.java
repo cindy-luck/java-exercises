@@ -2,6 +2,7 @@ package com.amigoscode._1_beginners._1_thebasics;
 
 import java.util.Scanner;
 
+
 /**
  * Mini Project: Simple Calculator
  *
@@ -15,7 +16,7 @@ public class MiniProject {
 
         // TODO: 1 - Create a Scanner for user input
 
-
+        Scanner scanner = new Scanner(System.in);
         // TODO: 2 - Display a menu with the following options:
         // Print:
         //   "=== Simple Calculator ==="
@@ -24,15 +25,25 @@ public class MiniProject {
         //   "3. Multiply"
         //   "4. Divide"
         //   "Choose an operation (1-4): "
-
+        System.out.println("Print:");
+        System.out.println("=== Simple Calculator ===");
+        System.out.println("1. Add");
+        System.out.println("2. Subtract");
+        System.out.println("3. Multiply");
+        System.out.println("4. Divide");
+        System.out.println("Choose an operation (1-4): ");
 
         // TODO: 3 - Read the user's choice into an int variable
-
+        int userChoice = scanner.nextInt();
 
         // TODO: 4 - Prompt and read two double numbers from the user
         // Print "Enter first number: " and read it.
         // Print "Enter second number: " and read it.
 
+        System.out.println("Enter first number: ");
+        int firstNum = scanner.nextInt();
+        System.out.println("Enter second number: ");
+        int secondNum = scanner.nextInt();
 
         // TODO: 5 - Use a switch statement to perform the chosen operation and print the result
         // Case 1: Print "Result: " + (num1 + num2)
@@ -40,11 +51,37 @@ public class MiniProject {
         // Case 3: Print "Result: " + (num1 * num2)
         // Case 4: Perform division (but handle division by zero first - see TODO 6)
         // Default: Print "Invalid choice"
+        System.out.println("Your Choice:"+userChoice);
+        int result = 0;
+        switch(userChoice){
+            case 1:
+                result= firstNum + secondNum;
+                break;
+            case 2:
+                result = firstNum - secondNum;
+                break;
+            case 3:
+                result = firstNum * secondNum;
+                break;
+            case 4:
+                if(secondNum == 0){
+                    System.out.println("Cannot divide by zero");
+                }else{
+                    result = firstNum / secondNum;
+                }
+
+                break;
+            default:
+                System.out.println("Invalid choice");
+        }
+        System.out.println(result);
+
 
 
         // TODO: 6 - Inside case 4, handle division by zero with an if statement
         // If the second number is 0, print "Error: Cannot divide by zero"
         // Otherwise, print the result of the division
+
 
     }
 }
