@@ -18,7 +18,7 @@ public class IfStatements {
     public static String evenOrOdd(int number) {
         // TODO: 1 - Use the ternary operator ( condition ? valueIfTrue : valueIfFalse )
         //  to return "Even" or "Odd" based on whether number % 2 == 0.
-        return null;
+        return number % 2 == 0 ? "Even" : "Odd";
     }
 
     /**
@@ -33,7 +33,8 @@ public class IfStatements {
     public static boolean isEligibleForLoan(int age, double income, boolean hasGuarantor) {
         // TODO: 2 - Use a single return statement with && and || operators
         //  to express the eligibility condition described above.
-        return false;
+        return (age >= 18 && income >= 30000 || (hasGuarantor == true && age >= 16));
+
     }
 
     /**
@@ -46,7 +47,8 @@ public class IfStatements {
     public static String getGrade(int score) {
         // TODO: 3 - Use nested ternary operators to return the correct grade.
         //  Example pattern: score >= 90 ? "A" : score >= 80 ? "B" : ...
-        return null;
+
+        return score >= 90 ? "A" : score >= 80 ? "B" : score >= 70 ? "C" : score >= 60 ? "D" : "F";
     }
 
     /**
@@ -59,7 +61,9 @@ public class IfStatements {
     public static int safeLength(String text) {
         // TODO: 4 - Check if text is null before calling text.length().
         //  Return -1 if text is null, otherwise return text.length().
-        return 0;
+
+        return text == null ? 0 : text.length();
+
     }
 
     /**
@@ -75,7 +79,8 @@ public class IfStatements {
         //  If both are null, return true.
         //  If only one is null, return false.
         //  Otherwise, use a.equals(b) — never use == for string content comparison.
-        return false;
+
+        return a == null && b == null? true: a == null || b == null ? false : a.equals(b) ? true: false ;
     }
 
     /**
@@ -95,11 +100,23 @@ public class IfStatements {
         //      ...
         //      default -> "Invalid";
         //  };
-        return null;
+        String one = "Monday";
+        String two = "Tuesday";
+
+        return switch(day){
+            case 1 -> "Monday";
+            case 2 -> "Tuesday";
+            case 3 -> "Wednesday";
+            case 4 -> "Thursday";
+            case 5 -> "Friday";
+            case 6 -> "Saturday";
+            case 7 -> "Sunday";
+            default -> "Invalid";
+        };
     }
 
     public static void main(String[] args) {
-        System.out.println("=== Ternary Operator ===");
+ /*       System.out.println("=== Ternary Operator ===");
         System.out.println("4 is " + evenOrOdd(4));
         System.out.println("7 is " + evenOrOdd(7));
 
@@ -108,7 +125,7 @@ public class IfStatements {
         System.out.println("Age 17, Income 10000, Has guarantor: " + isEligibleForLoan(17, 10000, true));
         System.out.println("Age 15, Income 10000, Has guarantor: " + isEligibleForLoan(15, 10000, true));
 
-        System.out.println("\n=== Nested Ternary (Grades) ===");
+       System.out.println("\n=== Nested Ternary (Grades) ===");
         System.out.println("Score 95: " + getGrade(95));
         System.out.println("Score 72: " + getGrade(72));
         System.out.println("Score 55: " + getGrade(55));
@@ -117,12 +134,12 @@ public class IfStatements {
         System.out.println("Length of 'hello': " + safeLength("hello"));
         System.out.println("Length of null: " + safeLength(null));
 
-        System.out.println("\n=== String Equality ===");
+       System.out.println("\n=== String Equality ===");
         System.out.println("'abc' equals 'abc': " + safeEquals("abc", "abc"));
         System.out.println("'abc' equals null: " + safeEquals("abc", null));
-        System.out.println("null equals null: " + safeEquals(null, null));
+        System.out.println("null equals null: " + safeEquals(null, null));*/
 
-        System.out.println("\n=== Switch Expression ===");
+       System.out.println("\n=== Switch Expression ===");
         System.out.println("Day 1: " + getDayName(1));
         System.out.println("Day 5: " + getDayName(5));
         System.out.println("Day 9: " + getDayName(9));
