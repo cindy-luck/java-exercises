@@ -12,13 +12,25 @@ public class VarArgs {
     //  Returns the sum of all provided numbers.
     //  If no arguments are provided, return 0.
     //  Hint: use a for-each loop to iterate over 'numbers'.
+    static int sum(int... numbers){
+        int sum = 0;
+        for(int number : numbers){
+            sum += number;
+        }
 
+        return sum;
+    }
 
     // TODO: 2 - Create a method: String concatenate(String... strings)
     //  Joins all strings with a single space between them.
     //  Example: concatenate("Hello", "World") returns "Hello World"
     //  If no arguments, return an empty string "".
     //  Hint: use StringBuilder or String.join(" ", strings).
+    static String concatenate(String... strings){
+
+        return String.join("",strings);
+
+    }
 
 
     // TODO: 3 - Create a method: int findMax(int... numbers)
@@ -26,6 +38,19 @@ public class VarArgs {
     //  If no arguments are provided, throw an IllegalArgumentException
     //  with the message "At least one number required".
 
+    static int findMax(int... numbers){
+        int current = 0;
+        if(numbers == null ){
+            throw new IllegalArgumentException("At least one number");
+        }
+
+        for(int number : numbers){
+            if(number > current){
+                current = number;
+            }
+        }
+        return current;
+    }
 
     // TODO: 4 - Create a method: void printAll(Object... items)
     //  Prints each item on a separate line, prefixed with its index.
@@ -33,6 +58,20 @@ public class VarArgs {
     //    [0] Hello
     //    [1] 42
     //    [2] true
+    static void printAll(Object... items){
+        for (Object item: items){
+            System.out.println(item);
+        }
+
+    }
+
+    static String format(String prefix, int...numbers){
+        StringBuilder numberString = new StringBuilder("[");
+        for (int number : numbers){
+            numberString.append(number);
+        }
+        return prefix+" : "+numberString + "]";
+    }
 
 
     public static void main(String[] args) {
@@ -40,20 +79,20 @@ public class VarArgs {
 
         System.out.println("=== Sum ===");
         // TODO: 5 - Demonstrate calling sum() with different numbers of arguments:
-        //  - sum()           -> 0  (zero args)
-        //  - sum(5)          -> 5  (one arg)
-        //  - sum(1, 2, 3, 4) -> 10 (many args)
+        System.out.println(sum() );       //-> 0  (zero args)
+        System.out.println(sum(5) );        //-> 5  (one arg)
+        System.out.println(sum(1, 2, 3, 4)); //-> 10 (many args)
         //  Print each result.
 
 
         System.out.println("\n=== Concatenate ===");
-        // Print: concatenate("Java", "is", "awesome")
+        System.out.println(concatenate("Java", "is", "awesome"));
 
         System.out.println("\n=== Find Max ===");
-        // Print: findMax(3, 7, 2, 9, 1)
+        System.out.println(findMax(3, 7, 2, 9, 1));
 
         System.out.println("\n=== Print All ===");
-        // Call: printAll("Hello", 42, true, 3.14)
+         printAll("Hello", 42, true, 3.14);
 
         System.out.println("\n=== Mixed Params ===");
         // TODO: 6 - Create a method: String format(String prefix, int... numbers)
@@ -62,6 +101,8 @@ public class VarArgs {
         //  Example: format("Values", 1, 2, 3) returns "Values: [1, 2, 3]"
         //  Hint: varargs must be the LAST parameter in the method signature.
         //  Then call the method and print the result here.
+        System.out.println(format("Values", 1, 2, 3));
+
 
     }
 }
