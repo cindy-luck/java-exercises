@@ -1,5 +1,7 @@
 package com.amigoscode._2_developers._6_strings;
 
+import javax.management.MBeanNotificationInfo;
+
 /**
  * String Methods Exercises
  *
@@ -19,7 +21,9 @@ public class StringMethods {
     public static String compareEquality(String a, String b) {
         // TODO: 1 - Use equals() and equalsIgnoreCase() to compare a and b.
         //  Return a string in the format: "equals: <result>, equalsIgnoreCase: <result>"
-        return null;
+        boolean result1 = a.equals(b);
+        boolean result2 = a.equalsIgnoreCase((b));
+        return "equals: "+result1 + ", equalsIgnoreCase: "+result2;
     }
 
     /**
@@ -33,7 +37,17 @@ public class StringMethods {
     public static String compareLexicographic(String a, String b) {
         // TODO: 2 - Use a.compareTo(b) and return:
         //  "before" if result < 0, "equal" if result == 0, "after" if result > 0.
-        return null;
+        String result = "";
+        if(a.compareTo(b) < 0){
+            result = "before";
+        }
+        if(a.compareTo(b) == 0){
+            result = "equal";
+        }
+        if(a.compareTo(b) > 0){
+            result = "after";
+        }
+        return result;
     }
 
     /**
@@ -48,7 +62,9 @@ public class StringMethods {
         // TODO: 3 - Use contains() to check if text contains keyword.
         //  Use indexOf() to find the position of keyword in text.
         //  Return "contains: <bool>, indexOf: <index>"
-        return null;
+        boolean contains = text.contains(keyword);
+        int indexKeyword = text.indexOf(keyword);
+        return "contains: "+contains+" indexOf: "+indexKeyword;
     }
 
     /**
@@ -64,7 +80,9 @@ public class StringMethods {
         // TODO: 4 - First use replace(oldWord, newWord) to swap words.
         //  Then use replaceAll("\\d", "#") to replace all digits with "#".
         //  Return the final result.
-        return null;
+        String newText = text.replace(oldWord,newWord);
+        String result = newText.replaceAll("\\d", "#");
+        return result;
     }
 
     /**
@@ -79,7 +97,14 @@ public class StringMethods {
         // TODO: 5 - Use text.split(delimiter) to get an array of parts.
         //  Build a result string with each part on a new line: "[i] part"
         //  Example: "[0] apple\n[1] banana\n[2] cherry"
-        return null;
+        String [] newString = text.split(delimiter);
+        String result = "";
+        int counter = 0;
+        for(String string : newString){
+            result += "["+counter+"]"+string +"\n";
+            counter++;
+        }
+        return result;
     }
 
     /**
@@ -93,7 +118,9 @@ public class StringMethods {
     public static String checkStartEnd(String filename, String prefix, String extension) {
         // TODO: 6 - Use startsWith(prefix) and endsWith(extension).
         //  Return: "startsWith '<prefix>': <bool>, endsWith '<extension>': <bool>"
-        return null;
+        boolean prefixCheck = filename.startsWith(prefix);
+        boolean extensionCheck = filename.endsWith(extension);
+        return "startsWith " + prefix +": "+ prefixCheck +", "+ "endsWith: "+ extension + ": "+extensionCheck;
     }
 
     /**
@@ -107,7 +134,8 @@ public class StringMethods {
     public static String substringDemo(String text, int beginIndex, int endIndex) {
         // TODO: 7 - Use text.substring(beginIndex, endIndex) to extract a portion of text.
         //  Return the substring.
-        return null;
+        String result = text.substring(beginIndex,endIndex);
+        return result;
     }
 
     /**
@@ -122,7 +150,8 @@ public class StringMethods {
     public static String formatReceipt(String item, int quantity, double price) {
         // TODO: 8 - Use String.format() to create a formatted string.
         //  Format: "%-15s x%-5d $%.2f" (left-align item in 15 chars, quantity in 5, price with 2 decimals)
-        return null;
+
+        return String.format("%-15s x%-5d $%.2f",item,quantity,price);
     }
 
     public static void main(String[] args) {
