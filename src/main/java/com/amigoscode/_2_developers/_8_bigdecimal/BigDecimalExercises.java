@@ -103,6 +103,10 @@ public class BigDecimalExercises {
         BigDecimal fromString= new BigDecimal("0.1");
         System.out.println(fromDouble);
         System.out.println(fromString);
+        System.out.println("The String constructor should be preferred because decimal values like 0.1 cannot always be represented exactly as a double. ");
+
+        System.out.println("Using a String lets BigDecimal store the exact decimal value without floating-point precision errors"
+        );
 
 
     }
