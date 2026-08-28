@@ -13,10 +13,40 @@ public class ClassesAndObjects {
     // TODO: 1 - Create a static inner class called Person with:
     //  - A private String field 'name'
     //  - A private int field 'age'
+    static class Person{
+        private String name;
+        private int age;
+        Person(String name, int age){
+            this.name = name;
+            this.age = age;
+        }
+        Person(){
+            this("unknown",0);
 
+        }
+        @Override
+        public String toString(){
+            return "Person{name = "+name+","+ "age= "+age + "}";
+        }
+        @Override
+        public boolean equals(Object obj){
+            if(obj instanceof Person){
+                Person other = (Person) obj;
+                return this.name.equals(other.name)
+                        && this.age == other.age;
+            }
+            return false;
+        }
+        @Override
+        public int hashCode(){
+            return Objects.hash(name, age);
+        }
+
+    }
 
     // TODO: 2 - Add a constructor to Person that takes String name and int age,
     //  and assigns them to the fields.
+
 
 
     // TODO: 3 - Add a no-args constructor to Person that sets name to "Unknown"
@@ -47,6 +77,14 @@ public class ClassesAndObjects {
         //  Test equals(): compare person1 with person3 (should be true),
         //  and person1 with person2 (should be false).
         //  Print the comparison results.
+        Person person1 = new Person("Alice", 20);
+        Person person2 = new Person();
+        Person person3 = new Person("Alice",20);
+        System.out.println(person1.toString());
+        System.out.println(person2.toString());
+        System.out.println(person3.toString());
+        System.out.println(person1.equals(person3));//true
+        System.out.println(person1.equals(person2));//false
 
 
         // TODO: 7 - Demonstrate constructor chaining with this():
@@ -55,6 +93,12 @@ public class ClassesAndObjects {
         //  it avoids duplicating initialization logic.
         //  The no-args constructor you created in TODO 3 already demonstrates this.
         //  Print: "No-args person: " + the no-args person to show the defaults.
+
+        Person noArgPerson  = new Person();
+        System.out.println("noArgPerson: "+ noArgPerson);
+        //constructor chaining is when a constructor calls another constructor by using this()
+        //in the same class
+
 
     }
 }

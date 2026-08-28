@@ -12,6 +12,22 @@ public class EnumExercises {
     // TODO: 1 - Create an enum called Season with four constants:
     //  SPRING, SUMMER, AUTUMN, WINTER
     //  For now, just declare them without any fields or methods.
+    enum Season {
+        SPRING("flourishing"),
+        SUMMER("very hot"),
+        AUTUMN("falling leaves"),
+        WINTER("lets build a snowman");
+
+        private final String description;
+        Season(String description){
+            this.description = description;
+        }
+        String getDescription(){
+            return description;
+        }
+
+
+    }
 
 
     // TODO: 2 - Modify the Season enum to add:
@@ -34,6 +50,20 @@ public class EnumExercises {
     //  - A private final int 'level' field
     //  - A constructor that takes an int level
     //  - A getter getLevel()
+    enum Priority{
+        LOW(1),
+        MEDIUM(2),
+        HIGH(3);
+
+        private final int level;
+        Priority(int level){
+            this.level = level;
+        }
+        int getLevel(){
+            return level;
+        }
+    }
+
 
 
     public static void main(String[] args) {
@@ -42,6 +72,21 @@ public class EnumExercises {
         //  For each season, print a message like "Spring: Flowers bloom"
         //  using the getDescription() method.
         //  Test with Season.SUMMER.
+        Season season = Season.SUMMER;
+        switch(season){
+            case SPRING:
+                System.out.println(season.getDescription());
+                break;
+            case SUMMER:
+                System.out.println(season.getDescription());
+                break;
+            case AUTUMN:
+                System.out.println(season.getDescription());
+                break;
+            case WINTER:
+                System.out.println(season.getDescription());
+                break;
+        }
 
 
         System.out.println("\n=== Iterate Over Enum Values ===");
@@ -49,6 +94,15 @@ public class EnumExercises {
         //  Loop through them and print each one with its description and ordinal.
         //  Example output: "0: SPRING - Flowers bloom"
         //  Also iterate over Priority.values() and print each with its level.
+        Season [] seasons = Season.values();
+        for(Season aseason : seasons){
+            System.out.println(aseason.ordinal()+": "+aseason + " - " +aseason.getDescription());
+        }
+        Priority [] priorities = Priority.values();
+        for(Priority priority : priorities){
+            System.out.print(priority);
+            System.out.println(": "+priority.getLevel());
+        }
 
     }
 }
